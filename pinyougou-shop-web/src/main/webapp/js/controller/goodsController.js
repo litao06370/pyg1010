@@ -1,5 +1,5 @@
  //控制层 
-app.controller('goodsController' ,function($scope,$controller   ,goodsService){	
+app.controller('goodsController' ,function($scope,$controller   ,goodsService , uploadService){
 	
 	$controller('baseController',{$scope:$scope});//继承
 	
@@ -30,26 +30,23 @@ app.controller('goodsController' ,function($scope,$controller   ,goodsService){
 			}
 		);				
 	}
-	
-	//保存 
-	$scope.save=function(){				
-		var serviceObject;//服务层对象  				
-		if($scope.entity.id!=null){//如果有ID
-			serviceObject=goodsService.update( $scope.entity ); //修改  
-		}else{
-			serviceObject=goodsService.add( $scope.entity  );//增加 
-		}				
-		serviceObject.success(
-			function(response){
-				if(response.success){
-					//重新查询 
-		        	$scope.reloadList();//重新加载
-				}else{
-					alert(response.message);
-				}
-			}		
-		);				
-	}
+
+    $scope.entity={goods:{},goodsDesc:{itemImages:[]}};//定义页面实体结构
+    //(保存)->增加商品
+    $scope.add=function(){
+        $scope.entity.goodsDesc.introduction = editor.html();
+        goodsService.add( $scope.entity  ).success(
+            function(response){
+                if(response.success){
+                    alert("新增成功");
+                    $scope.entity = {};//清空数据,便于下个内容重新添加
+                    editor.html("");
+                }else{
+                    alert(response.message);
+                }
+            }
+        );
+    }
 	
 	 
 	//批量删除 
@@ -76,5 +73,25 @@ app.controller('goodsController' ,function($scope,$controller   ,goodsService){
 			}			
 		);
 	}
+
+	//上传文件
+    $scope.uploadFile=function () {
+        uploadService.uploadFile().success(function (response) {
+            if (response.success) {
+                $scope.image_entity.url=response.message;
+            }else {
+                alert(response.message);
+            }
+        });
+    }
     
+    //添加上传的图片实体到(图片列表)集合中
+    $scope.add_image_entity=function () {
+        $scope.entity.goodsDesc.itemImages.push($scope.image_entity);
+    }
+
+    //移出图片
+    $scope.remove_image_entity=function (index) {
+        $scope.entity.goodsDesc.itemImages.splice(index,1);
+    }
 });	
