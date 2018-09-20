@@ -159,6 +159,27 @@ app.controller('goodsController' ,function($scope,$controller   ,goodsService , 
         }
     }
 
+    //创建SKU列表
+    $scope.createItemList=function () {
+        $scope.entity.itemList=[{spec:{},price:0,num:9999,status:"0",isDefault:"0"}];//类表初始化
+        var items = $scope.entity.goodsDesc.specificationItems;//这是放置在上一行的spec{}里面的数据
+        for(var i= 0;i<items.length;i++) {
+            $scope.entity.itemList = addColumn($scope.entity.itemList,items[i].attributeName,items[i].attributeValue);
+        }
+    }
+
+    addColumn=function (list, columnName, columnValues) {//深克隆,遍历添加新数据
+        var newList=[];
+        for(var i = 0; i<list.length; i++) {
+            var oldRow = list[i];
+            for(var j = 0; j<columnValues.length; j++) {
+                var newRow = JSON.parse(JSON.stringify(oldRow));//深克隆
+                newRow.spec[columnName] = columnValues[j];//主要是获取这个数据
+                newList.push(newRow);
+            }
+        }
+        return newList;
+    }
 
 
 
