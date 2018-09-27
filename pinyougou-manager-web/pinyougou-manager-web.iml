@@ -86,5 +86,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-oxm:4.2.6.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:jcl-over-slf4j:1.7.21" level="project" />
     <orderEntry type="module" module-name="pinyougou-content-interface" />
+    <orderEntry type="module" module-name="pinyougou-search-interface" />
   </component>
 </module>
