@@ -8,10 +8,13 @@
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <dubbo:protocol name="dubbo" port="20885"></dubbo:protocol>
+  <!--  <dubbo:protocol name="dubbo" port="20885"></dubbo:protocol>
 	<dubbo:application name="pinyougou-page-service"/>
     <dubbo:registry address="zookeeper://192.168.25.135:2181"/>
-    <dubbo:annotation package="com.pinyougou.page.service.impl" />
+    <dubbo:annotation package="com.pinyougou.page.service.impl" />-->
+
+    <!--配置包扫描(因为取消dubbo依赖后需要用传统的方式配置需要被扫描的包路径)-->
+    <context:component-scan base-package="com.pinyougou.page.service.impl"></context:component-scan>
 
     <bean id="freemarkerConfig"
           class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
