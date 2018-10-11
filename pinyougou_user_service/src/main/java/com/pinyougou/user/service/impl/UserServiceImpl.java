@@ -188,8 +188,8 @@ public class UserServiceImpl implements UserService {
                 MapMessage message = session.createMapMessage();
                 message.setString("mobile",phone);
                 message.setString("template_code",template_code);
-//                message.setString("sign_name",sign_name);
-                message.setString("sign_name","李晓逗");
+                message.setString("sign_name",sign_name);
+//                message.setString("sign_name","李晓逗");
                 Map map = new HashMap();
                 map.put("code", smscode);
                 message.setString("param", JSON.toJSONString(map));
