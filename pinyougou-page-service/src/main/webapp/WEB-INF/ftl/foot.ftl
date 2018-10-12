@@ -140,7 +140,7 @@
                 <div style="visibility: hidden;" class="J-content toolbar-panel tbar-panel-cart toolbar-animate-out">
                     <h3 class="tbar-panel-header J-panel-header">
                         <a href="" class="title"><i></i><em class="title">购物车</em></a>
-                        <span class="close-panel J-close" onclick="cartPanelView.tbar_panel_close('cart');" ></span>
+                        <span class="close-panel J-close" onclick="cartPanelView.tbar_panel_close('user');" ></span>
                     </h3>
                     <div class="tbar-panel-main">
                         <div class="tbar-panel-content J-panel-content">
@@ -195,12 +195,12 @@
                                 <ul>
                                     <!--<li class="jth-item">
                                         <a href="#" class="img-wrap"> <img src=".portal/img/like_03.png" height="100" width="100" /> </a>
-                                        <a class="add-cart-button" href="#" target="_blank">加入购物车</a>
+                                        <a class="add-user-button" href="#" target="_blank">加入购物车</a>
                                         <a href="#" target="_blank" class="price">￥498.00</a>
                                     </li>
                                     <li class="jth-item">
                                         <a href="#" class="img-wrap"> <img src="portal/img/like_02.png" height="100" width="100" /></a>
-                                        <a class="add-cart-button" href="#" target="_blank">加入购物车</a>
+                                        <a class="add-user-button" href="#" target="_blank">加入购物车</a>
                                         <a href="#" target="_blank" class="price">￥498.00</a>
                                     </li>-->
                                 </ul>
@@ -217,7 +217,7 @@
 
             <!-- 侧栏按钮 -->
             <div class="toolbar-tabs J-tab">
-                <div onclick="cartPanelView.tabItemClick('cart')" class="toolbar-tab tbar-tab-cart" data="购物车" tag="cart" >
+                <div onclick="cartPanelView.tabItemClick('user')" class="toolbar-tab tbar-tab-cart" data="购物车" tag="cart" >
                     <i class="tab-ico"></i>
                     <em class="tab-text"></em>
                     <span class="tab-sub J-count " id="tab-sub-cart-count">0</span>

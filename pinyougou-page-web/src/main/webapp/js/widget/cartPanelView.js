@@ -5,8 +5,8 @@ var cartPanelView = {
     // 初始化
     setup : function (callback) {
 
-        $('.tbar-cart-item').hover(function (){ $(this).find('.p-del').show(); },function(){ $(this).find('.p-del').hide(); });
-        $('.jth-item').hover(function (){ $(this).find('.add-cart-button').show(); },function(){ $(this).find('.add-cart-button').hide(); });
+        $('.tbar-user-item').hover(function (){ $(this).find('.p-del').show(); },function(){ $(this).find('.p-del').hide(); });
+        $('.jth-item').hover(function (){ $(this).find('.add-user-button').show(); },function(){ $(this).find('.add-user-button').hide(); });
 
         // 悬浮按钮
         $('.toolbar-tab').hover(function (){
@@ -20,7 +20,7 @@ var cartPanelView = {
             $(this).removeClass("tbar-tab-selected");
         });
 
-        cartPanelView.cartCellTemplate = $("#tbar-cart-item-template").html();
+        cartPanelView.cartCellTemplate = $("#tbar-user-item-template").html();
 
         callback();
     },
@@ -93,12 +93,12 @@ var cartPanelView = {
                 );
             }
         }
-        $("#cart-list").html(rowsHtml);
+        $("#user-list").html(rowsHtml);
         // 购物车小计
-        $("#cart-number").html(dataJSON.totalQuantity);
-        $("#cart-sum").html(String.format("¥{0}",dataJSON.totalPrices));
+        $("#user-number").html(dataJSON.totalQuantity);
+        $("#user-sum").html(String.format("¥{0}",dataJSON.totalPrices));
         // 侧栏 购物件数
-        $("#tab-sub-cart-count").html(dataJSON.totalQuantity);
+        $("#tab-sub-user-count").html(dataJSON.totalQuantity);
     }
 };
 
