@@ -1,4 +1,4 @@
-package com.pinyougou.cart.service;
+package com.pinyougou.cart.user;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

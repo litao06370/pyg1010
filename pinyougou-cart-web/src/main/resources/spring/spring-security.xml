@@ -10,6 +10,7 @@
 	<http pattern="/plugins/**" security="none"></http>
 
 	<http pattern="/cart.html" security="none"></http>
+	<http pattern="/cart/*.do" security="none"></http>
 
 	<!--   entry-point-ref  入口点引用 -->
 	<http use-expressions="false" entry-point-ref="casProcessingFilterEntryPoint">  
@@ -60,7 +61,7 @@
         <beans:property name="key" value="an_id_for_this_auth_provider_only"/> 
     </beans:bean>        
    		 <!-- 认证类 -->
-	<beans:bean id="userDetailsService" class="com.pinyougou.cart.service.UserDetailServiceImpl"/>
+	<beans:bean id="userDetailsService" class="com.pinyougou.cart.user.UserDetailServiceImpl"/>
 	
 	<!-- 认证过滤器 结束 -->
 	
